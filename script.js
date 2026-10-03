@@ -18,7 +18,7 @@ let panel2 = document.getElementById("panel2");
 let danceFloor = document.getElementById("dance-floor");
 let dancer = document.getElementById("dancer");
 
-setInterval(function() {
+let panelTimer = setInterval(function() {
 
 let red = Math.floor(Math.random() * 255);
 let green = Math.floor(Math.random() * 255);
@@ -67,6 +67,49 @@ dancer.addEventListener("click", function(event) {
 
 /*
 PHASE III - The Dance Controller
+Implement real-time control of the dancer via the keyboard.
 
+Use window.addEventListener("keydown", ...) to capture keyboard input.
+Map the Arrow Keys (Up, Down, Left, Right) to change the Dancer’s emoji to at least four different “dance moves.”
+Implement a shortcut key (e.g., the "r" key) that resets the Dance Floor’s color to its original state and stops the Panel timers.
+Hints
+Refer to the MDN KeyboardEvent.key documentation for the correct key strings (e.g., "ArrowUp").
+To stop a timer, you will need to store the ID returned by setInterval and pass it to clearInterval.
 
+Journal Prompt
+Why is it more effective to use a global window listener for keyboard shortcuts rather than attaching the listener to a specific HTML element? What are some challenges when handling “held down” keys?
 */
+
+window.addEventListener("keydown", function(event) {
+
+    if (event.key === "ArrowUp") {
+
+        dancer.textContent = "🕺";
+    }
+
+    else if (event.key === "ArrowDown") {
+
+        dancer.textContent = "💃";
+        
+    }
+
+    else if (event.key === "ArrowLeft") {
+
+        dancer.textContent = "🕺‍♂️";
+    }
+
+    else if (event.key === "ArrowRight") {
+
+        dancer.textContent = "💃🏻";
+
+    }
+
+    else if (event.key === "r") {
+
+        danceFloor.style.background = "orange";
+
+        this.clearInterval(panelTimer);
+
+    }
+
+});

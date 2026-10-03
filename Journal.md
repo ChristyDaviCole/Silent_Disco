@@ -8,3 +8,8 @@ Journal Prompt 2:
 Explain the concept of “event bubbling.” 
 If you don't use stopPropagation(), the event happening on the child will "bubble up" to the parent element(s). 
 How did stopPropagation() allow you to separate the Dancer’s interaction from the Floor’s interaction? I didn't want to trigger the dance floor to change, so stopPropagation() stopped it from doing so.
+
+Journal Prompt 3:
+Why is it more effective to use a global window listener for keyboard shortcuts rather than attaching the listener to a specific HTML element? 
+It's more effective because it allows the works regardless of where the user clicks on the page. 
+What are some challenges when handling “held down” keys? A potential challenge could be the event happening multiple times quickly instead of just once.
